@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>>RR</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 198vh;    
+      height: 95vh;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: 1fr 3fr;
+      background-color: black;
+      gap: 5px;
+      border: 5px solid black
+    }
+
+    .header {
+      grid-column: span 2;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-content: space-between;
+      background-color: white;
+    }
+
+    .left{
+      background-color: rgb(13, 106, 212);
+    }
+
+    .right{
+      background-color: rgb(54, 201, 9);
+    }
+
+    img {
+      position: absolute;
+      top: 3%;
+      right: 30px;
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+      object-position: left bottom;
+      border-radius: 100%;
+      border: 5px solid black;
+    }
+
+    p {
+      padding: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    .name {
+      font-size: 2rem;
+      min-width: 90%;
+      margin-top: 50px;
+    }
+
+    .mobile.email {
+      height: 10px;
+    }
+
+    @media(max-width:480px){
+      
+      img {
+        position: absolute;
+        top: 220px;
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        object-position: left bottom;
+        border-radius: 100%;
+        border: 5px solid black;
+      }
+
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class = "header">
+        <p class="name">Pramod Chowdary Simhadri</p>
+        <img src="./Untitled.png" alt="Profile picture">
+        <p class="mobile">Mobile-no: 4805598865</p>
+        <p class="email"><a href = "mailto: psimhadri@savvients.com">pramoohot@gmail.com</a></p>
+    </div>
+    <div class = "left"></div>
+    <div class = "right"></div>
+  </div>
+</body>
+
+</html>

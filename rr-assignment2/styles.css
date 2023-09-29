@@ -1,0 +1,308 @@
+/* CSS for main body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting up grid for Container holding all the divs */
+.container {
+    width: 200vh;    
+    height: 99vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 3fr;
+    grid-template-areas: 
+        "a b"
+        "a c";
+    background-color: black;
+    border: 0.5vh solid rgb(18, 88, 240)
+}
+
+/* CSS for sidebar starts */
+
+/* Setting up flexbox for sidebar */
+.sidebar {
+    grid-area: a;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(18, 88, 240);
+}
+
+/* Styling navigation items and setting up flexbox for items in nav */
+.nav {
+    flex: 0.5;
+    width: 70%;
+    align-self: center;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+/* CSS for the image/logo at top */
+.topLogo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: center;
+}
+
+/* nav elements customization starts */
+.navElement:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.navElement {
+    color: white;
+    font-size: 1.5rem;
+}
+/* nav elements customization ends */  
+
+/* logout fancy button customization starts*/
+button {
+    width: 10rem;
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button:before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(18, 88, 240);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+/* logout fancy button customization ends*/
+
+/* CSS for sidebar ends */
+
+/* CSS for header starts */
+
+/* Setting up flexbox for header */
+.header {
+    grid-area: b;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    gap: 100px;
+    background-color: white;
+    padding-left: 100px;
+}
+
+/* Styling the three feedboxes in header */
+.headerFeed {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    width: 10%;
+    height: 40%;
+    border: solid rgba(240, 81, 81, 0.767);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* styling the logo inside the feedbox in the header */
+.headerLogo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 1em;
+    object-fit: cover;
+}
+
+/* creating hover animation style for paragraph element inside feedbox */
+.headerFeed > p:hover {
+    box-shadow: 0 0 5px green;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* styling the paragraph element inside feedbox */
+.headerFeed > p {
+    color: green;
+    font-size: 1em;
+}
+
+/* Styling the searchbar starts */
+.search-container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    height: 30px;
+    border: solid 2px black;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+        inset -4px -4px 6px 0 rgba(255,255,255,.2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+/* Increase the search bar width on hover */
+.search-container:hover > .search-input{
+    width: 400px;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+}
+
+/* styling shake animation on hover */
+@keyframes hoverShake {
+  0% {transform: skew(0deg,0deg);}
+  25% {transform: skew(5deg, 5deg);}
+  75% {transform: skew(-5deg, -5deg);}
+  100% {transform: skew(0deg,0deg);}
+}
+
+/* applying the shake animation on hover */
+.search-container:hover{
+  animation: hoverShake 0.15s linear 3;
+  background-image: none;
+}
+
+/* Styling magnifying glass image inside the search bar */
+.searchGlass {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+/* giving the placeholder text contrasting color to the background color */
+::placeholder {
+    color: orange;
+    font-weight: bold;
+}
+/* Styling the searchbar ends */
+
+/* CSS for header ends */
+
+/* CSS for content starts */
+
+/* Setting up flexbox for content */
+.content {
+    grid-area: c;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 50px;
+    background-color: white;
+    padding-left: 100px;
+}
+
+/* Styling the three feedboxes in content */
+.contentFeed {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    width: 90%;
+    height: 15%;
+    border: solid green;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* styling the logo inside the feedbox in the content */
+.contentLogo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* creating hover animation style for paragraph element inside feedbox */
+.contentFeed > p:hover {
+    box-shadow: 0 0 5px green;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* styling the paragraph element inside feedbox */
+.contentFeed > p {
+    color: green;
+    font-size: 1rem;
+    height: fit-content;
+}
+
+/* CSS for content ends */
